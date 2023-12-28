@@ -14,27 +14,33 @@ const AfterSchoolCourseListPage = () => {
   const dummyData = [
     {
       id: "1",
-      version: "1.0.1",
-      name: "이름1",
-      seller: "Wade",
-      customer: "Amber",
-      date: "2023.11.22",
+      order: 1,
+      category: "진로체험활동",
+      status: "신청종료",
+      target: "1~3학년",
+      openAt: "11-20 09:00",
+      closeAt: "11-20 09:00",
+      classCount: 18,
     },
     {
-      id: "2",
-      version: "1.0.1",
-      name: "이름2",
-      seller: "Wade",
-      customer: "Amber",
-      date: "2023.12.02",
+      id: "1",
+      order: 1,
+      category: "진로체험활동",
+      status: "신청종료",
+      target: "1~3학년",
+      openAt: "11-20 09:00",
+      closeAt: "11-20 09:00",
+      classCount: 18,
     },
     {
-      id: "3",
-      version: "1.0.1",
-      name: "이름3",
-      seller: "Wade",
-      customer: "Amber",
-      date: "2023.04.02",
+      id: "1",
+      order: 1,
+      category: "진로체험활동",
+      status: "신청종료",
+      target: "1~3학년",
+      openAt: "11-20 09:00",
+      closeAt: "11-20 09:00",
+      classCount: 18,
     },
   ];
 
@@ -46,23 +52,38 @@ const AfterSchoolCourseListPage = () => {
         <Table variant="striped">
           <Thead>
             <Tr>
-              <Th>API 이름</Th>
-              <Th>버전</Th>
-              <Th>구매자</Th>
-              <Th>판매자</Th>
-              <Th>구매일</Th>
+              <Th>순번</Th>
+              <Th>코스</Th>
+              <Th>상태</Th>
+              <Th>신청대상</Th>
+              <Th>신청기간</Th>
+              <Th>강좌수</Th>
             </Tr>
           </Thead>
           <Tbody>
-            {dummyData.map(({ id, name, version, seller, customer, date }) => (
-              <Tr key={id} cursor={"pointer"}>
-                <Td>{name}</Td>
-                <Td>{version}</Td>
-                <Td>{seller}</Td>
-                <Td>{customer}</Td>
-                <Td>{date}</Td>
-              </Tr>
-            ))}
+            {dummyData.map(
+              ({
+                id,
+                category,
+                order,
+                classCount,
+                openAt,
+                closeAt,
+                status,
+                target,
+              }) => (
+                <Tr key={id} cursor={"pointer"}>
+                  <Td>{order}</Td>
+                  <Td>{category}</Td>
+                  <Td>{status}</Td>
+                  <Td>{target}</Td>
+                  <Td>
+                    {openAt} ~ {closeAt}
+                  </Td>
+                  <Td>{classCount}</Td>
+                </Tr>
+              )
+            )}
           </Tbody>
         </Table>
       </TableContainer>
