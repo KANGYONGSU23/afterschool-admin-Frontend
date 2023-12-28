@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { Container } from "@chakra-ui/layout";
 
 const ServiceLayout = () => {
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ const ServiceLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <Container height={"calc(100vh - 62px)"} overflowY={"scroll"}>
+        <Outlet />
+      </Container>
     </>
   );
 };
