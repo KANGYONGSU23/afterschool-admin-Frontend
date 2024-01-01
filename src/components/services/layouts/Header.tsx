@@ -12,13 +12,13 @@ const Header = () => {
         </Link>
 
         <Flex gap={12}>
-          <Link to="after-school-course">
+          <Link to="/services/after-school-course">
             <Text textColor={"black"} fontSize="md">
               코스 관리
             </Text>
           </Link>
 
-          <Link to="after-school-class">
+          <Link to="/services/after-school-class">
             <Text textColor={"black"} fontSize="md">
               강좌 관리
             </Text>
