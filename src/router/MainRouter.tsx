@@ -9,7 +9,7 @@ import {
   Login,
   NotFound,
 } from "../pages";
-import Header from "../components/services/layouts/Header";
+import ServiceLayout from "../components/services/layouts";
 
 const MainRouter = () => {
   return (
@@ -17,17 +17,19 @@ const MainRouter = () => {
       <Routes>
         <Route index element={<Login />} />
 
-        <Route path="services" element={<Header />}>
-          <Route path="after-school-class">
-            <Route path="index" element={<AfterSchoolClassList />} />
-            <Route path="create" element={<AfterSchoolClassCreate />} />
-            <Route path=":id" element={<AfterSchoolClassDetail />} />
-          </Route>
+        <Route element={<ServiceLayout />}>
+          <Route path="services">
+            <Route path="after-school-class">
+              <Route path="index" element={<AfterSchoolClassList />} />
+              <Route path="create" element={<AfterSchoolClassCreate />} />
+              <Route path=":id" element={<AfterSchoolClassDetail />} />
+            </Route>
 
-          <Route path="after-school-course">
-            <Route index element={<AfterSchoolCourseList />} />
-            <Route path="create" element={<AfterSchoolCourseCreate />} />
-            <Route path=":id" element={<AfterSchoolCourseDetail />} />
+            <Route path="after-school-course">
+              <Route index element={<AfterSchoolCourseList />} />
+              <Route path="create" element={<AfterSchoolCourseCreate />} />
+              <Route path=":id" element={<AfterSchoolCourseDetail />} />
+            </Route>
           </Route>
         </Route>
 

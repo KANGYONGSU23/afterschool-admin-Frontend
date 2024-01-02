@@ -1,5 +1,6 @@
-import { Text, VStack } from "@chakra-ui/layout";
+import { VStack } from "@chakra-ui/layout";
 import {
+  Button,
   Table,
   TableContainer,
   Tbody,
@@ -8,6 +9,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import PageHeader from "../../../components/services/common/PageHeader";
 
 const AfterSchoolCourseListPage = () => {
   //TODO: 제거
@@ -46,9 +48,11 @@ const AfterSchoolCourseListPage = () => {
 
   return (
     <VStack>
-      <Text>방과후 코스 리스트 페이지</Text>
+      <PageHeader title="방과후 코스 리스트">
+        <Button>코스 생성하기</Button>
+      </PageHeader>
 
-      <TableContainer>
+      <TableContainer width={"100%"}>
         <Table variant="striped">
           <Thead>
             <Tr>
