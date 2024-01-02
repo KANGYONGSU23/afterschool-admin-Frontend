@@ -3,11 +3,9 @@ import {
   AfterSchoolClassCreate,
   AfterSchoolClassDetail,
   AfterSchoolClassList,
-  AfterSchoolClassManage,
   AfterSchoolCourseCreate,
   AfterSchoolCourseDetail,
   AfterSchoolCourseList,
-  AfterSchoolCourseManage,
   Login,
   NotFound,
 } from "../pages";
