@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
-  AfterSchoolClassCreate,
-  AfterSchoolClassDetail,
-  AfterSchoolClassList,
-  AfterSchoolCourseCreate,
-  AfterSchoolCourseDetail,
-  AfterSchoolCourseList,
-  Login,
-  NotFound,
+    AfterSchoolClassCreate,
+    AfterSchoolClassDetail,
+    AfterSchoolClassList,
+    AfterSchoolCourseCreate,
+    AfterSchoolCourseDetail,
+    AfterSchoolCourseList,
+    Login,
+    NotFound,
 } from "../pages";
 import ServiceLayout from "../components/services/layouts";
 import Header from "../components/header";
