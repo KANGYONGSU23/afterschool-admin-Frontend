@@ -11,6 +11,8 @@ import {
 } from "../pages";
 import ServiceLayout from "../components/services/layouts";
 import Header from "../components/header";
+import AfterSchoolApplication from "../pages/service/afterSchool application/AfterSchoolApplication";
+import Main from "../pages/service/main/Main";
 
 
 const MainRouter = () => {
@@ -18,7 +20,8 @@ const MainRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route index element={<Login />} />
-     
+        <Route path="main" element={<Main />} />
+
           <Route path="services">
             <Route path="after-school-class">
               <Route path="index" element={<AfterSchoolClassList />} />
@@ -31,9 +34,11 @@ const MainRouter = () => {
               <Route path="create" element={<AfterSchoolCourseCreate />} />
               <Route path=":id" element={<AfterSchoolCourseDetail />} />
             </Route>
-          </Route>
-     
 
+            <Route path="after-school-application">
+              <Route path="application" element={<AfterSchoolApplication />} />
+            </Route>
+          </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

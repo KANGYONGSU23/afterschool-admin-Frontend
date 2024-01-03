@@ -17,7 +17,15 @@ const LoginPage = () => {
   const onClickLogin = () => {
     //TODO: API 연동 필요, onSuccess후 Navigate
     const { id, password } = getValues();
+    if (id !== "kodomo1234" && password!=="kodomo1234") {
+      alert("계정이 올바르지 않습니다.");
+      return;
+    }
+
+    navigate("/main");
+    alert("로그인 되었습니다.");
   };
+    
 
   return (
     <Center w={"100%"} h={"100vh"} backgroundColor={"gray.100"}>
