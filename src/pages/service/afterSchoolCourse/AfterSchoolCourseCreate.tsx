@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import DatePicker from "../../../components/services/common/DatePicker";
 import PageHeader from "../../../components/services/common/PageHeader";
 import RadioContainer from "../../../components/services/common/RadioContainer";
+import axios from "axios";
 
 interface FormType {
   courseName: string;
@@ -38,9 +39,10 @@ const AfterSchoolCourseCreatePage = () => {
     }));
   };
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
+  // msw 테스트 코드
+  axios.get("/user/test").then((res) => {
+    console.log(res);
+  });
 
   return (
     <>
