@@ -18,7 +18,7 @@ const MainRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route index element={<Login />} />
-        <Route element={<Header />}>
+     
           <Route path="services">
             <Route path="after-school-class">
               <Route path="index" element={<AfterSchoolClassList />} />
@@ -32,7 +32,7 @@ const MainRouter = () => {
               <Route path=":id" element={<AfterSchoolCourseDetail />} />
             </Route>
           </Route>
-        </Route>
+     
 
         <Route path="*" element={<NotFound />} />
       </Routes>

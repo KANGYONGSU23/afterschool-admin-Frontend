@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import { ListImg } from "../../../assets";
+import Header from "../../../components/header";
 
 const AfterSchoolApplication = () => {
   return (
     <>
+    <Header/>
       <Container>
         <Table>
           <img src={ListImg} alt="listImg" />

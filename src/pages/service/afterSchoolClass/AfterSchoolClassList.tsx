@@ -10,6 +10,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import PageHeader from "../../../components/services/common/PageHeader";
+import Header from "../../../components/header";
 
 const AfterSchoolClassListPage = () => {
   //TODO: 제거
@@ -54,6 +55,7 @@ const AfterSchoolClassListPage = () => {
 
   return (
     <VStack>
+      <Header/>
       <PageHeader title="방과후 수업 리스트">
         <Button>수업 생성하기</Button>
       </PageHeader>

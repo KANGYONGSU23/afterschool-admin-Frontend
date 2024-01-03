@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import DatePicker from "../../../components/services/common/DatePicker";
 import PageHeader from "../../../components/services/common/PageHeader";
 import RadioContainer from "../../../components/services/common/RadioContainer";
+import Header from "../../../components/header";
 
 interface FormType {
   courseName: string;
@@ -44,6 +45,7 @@ const AfterSchoolCourseCreatePage = () => {
 
   return (
     <>
+    <Header/>
       <VStack>
         <PageHeader title="방과후 코스 등록" />
       </VStack>
