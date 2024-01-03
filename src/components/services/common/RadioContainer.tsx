@@ -12,6 +12,7 @@ interface PropsType {
   label: string;
   description: string;
   radioItems: radioItemType[];
+  returnValue: (value: string) => void;
 }
 
 interface radioItemType {
@@ -19,14 +20,18 @@ interface radioItemType {
   label: string;
 }
 
-const RadioContainer = ({ label, description, radioItems }: PropsType) => {
+const RadioContainer = ({
+  label,
+  description,
+  radioItems,
+  returnValue,
+}: PropsType) => {
   return (
     <FormControl>
       <FormLabel>{label}</FormLabel>
       <RadioGroup
         onChange={(value) => {
-          console.log(value);
-          // ⚠ 상태관리 필요
+          returnValue(value);
         }}
       >
         <HStack display="block">
