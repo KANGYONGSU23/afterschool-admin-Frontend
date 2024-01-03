@@ -4,11 +4,9 @@ import {
   AfterSchoolClassCreate,
   AfterSchoolClassDetail,
   AfterSchoolClassList,
-  AfterSchoolClassManage,
   AfterSchoolCourseCreate,
   AfterSchoolCourseDetail,
   AfterSchoolCourseList,
-  AfterSchoolCourseManage,
   Login,
   NotFound,
 } from "../pages";
@@ -29,11 +27,11 @@ const MainRouter = () => {
             <Route path=":id" element={<AfterSchoolClassDetail />} />
           </Route>
 
-          <Route path="after-school-course">
-            <Route index element={<AfterSchoolCourseList />} />
-            <Route path="create" element={<AfterSchoolCourseCreate />} />
-            <Route path="manage" element={<AfterSchoolCourseManage />} />
-            <Route path=":id" element={<AfterSchoolCourseDetail />} />
+            <Route path="after-school-course">
+              <Route index element={<AfterSchoolCourseList />} />
+              <Route path="create" element={<AfterSchoolCourseCreate />} />
+              <Route path=":id" element={<AfterSchoolCourseDetail />} />
+            </Route>
           </Route>
 
           <Route path="after-school-application">
