@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import {
   AfterSchoolClassCreate,
   AfterSchoolClassDetail,
@@ -11,7 +12,8 @@ import {
   Login,
   NotFound,
 } from "../pages";
-import Header from "../components/services/layouts/Header";
+import Header from "../components/header";
+import AfterSchoolApplication from "../pages/service/afterSchool application/AfterSchoolApplication";
 
 const MainRouter = () => {
   return (
@@ -19,7 +21,7 @@ const MainRouter = () => {
       <Routes>
         <Route index element={<Login />} />
 
-        <Route path="services" element={<Header />}>
+        <Route path="services" element={< Header/>}>
           <Route path="after-school-class">
             <Route path="index" element={<AfterSchoolClassList />} />
             <Route path="create" element={<AfterSchoolClassCreate />} />
@@ -32,6 +34,10 @@ const MainRouter = () => {
             <Route path="create" element={<AfterSchoolCourseCreate />} />
             <Route path="manage" element={<AfterSchoolCourseManage />} />
             <Route path=":id" element={<AfterSchoolCourseDetail />} />
+          </Route>
+
+          <Route path="after-school-application">
+            <Route path="application" element={<AfterSchoolApplication/>}/>
           </Route>
         </Route>
 
