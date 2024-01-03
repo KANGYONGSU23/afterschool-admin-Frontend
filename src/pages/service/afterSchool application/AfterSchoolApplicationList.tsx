@@ -1,8 +1,10 @@
 
 import styled from "@emotion/styled";
-import { CheckBox } from "../../../assets";
-
+import { useNavigate } from "react-router-dom";
 const AfterSchoolApplicationList = () => {
+
+  const navigate = useNavigate();
+
     const RegistrationList = [
     {
         category: "7, 8교시",
@@ -46,12 +48,15 @@ return(
         <ListSection>
         {RegistrationList.map(
             ({ category, subject, teacher, personnel, explain}) => (
-                <List>
+                <List >
                 <div>
                     <p>{category}</p>
                 </div>
                 <div>
-                    <img src={CheckBox} />
+                <CheckboxInput
+                  type="checkbox"
+                
+                />
                     <Blod>{subject}</Blod>
                     <Blue>{teacher}</Blue>
                     <Blod>{personnel}</Blod>
@@ -64,6 +69,9 @@ return(
     </>
     );
 };
+const CheckboxInput = styled.input`
+  margin-right: 11px;
+`;
 
 const ListSection = styled.div`
   margin-bottom: 150px;

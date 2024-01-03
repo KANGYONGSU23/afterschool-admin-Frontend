@@ -1,4 +1,5 @@
 import { VStack } from "@chakra-ui/layout";
+import styled from "@emotion/styled";
 import {
   Button,
   Table,
@@ -11,8 +12,10 @@ import {
 } from "@chakra-ui/react";
 import PageHeader from "../../../components/services/common/PageHeader";
 import Header from "../../../components/header";
+import { useNavigate } from "react-router-dom";
 
 const AfterSchoolCourseListPage = () => {
+  const navigate = useNavigate();
   //TODO: 제거
   const dummyData = [
     {
@@ -48,54 +51,65 @@ const AfterSchoolCourseListPage = () => {
   ];
 
   return (
-  
-    <VStack>
-      <Header/>
-      <PageHeader title="방과후 코스 리스트">
-        <Button>코스 생성하기</Button>
-      </PageHeader>
+    <>
+      <Header />
+      <Container>
+        <PageHeader title="방과후 코스 리스트">
+          <Button
+            onClick={() => {
+              navigate("/after-school-course/create");
+            }}
+          >
+            코스 생성하기
+          </Button>
+        </PageHeader>
 
-      <TableContainer width={"100%"}>
-        <Table variant="striped">
-          <Thead>
-            <Tr>
-              <Th>순번</Th>
-              <Th>코스</Th>
-              <Th>상태</Th>
-              <Th>신청대상</Th>
-              <Th>신청기간</Th>
-              <Th>강좌수</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {dummyData.map(
-              ({
-                id,
-                category,
-                order,
-                classCount,
-                openAt,
-                closeAt,
-                status,
-                target,
-              }) => (
-                <Tr key={id} cursor={"pointer"}>
-                  <Td>{order}</Td>
-                  <Td>{category}</Td>
-                  <Td>{status}</Td>
-                  <Td>{target}</Td>
-                  <Td>
-                    {openAt} ~ {closeAt}
-                  </Td>
-                  <Td>{classCount}</Td>
-                </Tr>
-              )
-            )}
-          </Tbody>
-        </Table>
-      </TableContainer>
-    </VStack>
+        <TableContainer width={"100%"}>
+          <Table variant="striped">
+            <Thead>
+              <Tr>
+                <Th>순번</Th>
+                <Th>코스</Th>
+                <Th>상태</Th>
+                <Th>신청대상</Th>
+                <Th>신청기간</Th>
+                <Th>강좌수</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {dummyData.map(
+                ({
+                  id,
+                  category,
+                  order,
+                  classCount,
+                  openAt,
+                  closeAt,
+                  status,
+                  target,
+                }) => (
+                  <Tr key={id} cursor={"pointer"}>
+                    <Td>{order}</Td>
+                    <Td>{category}</Td>
+                    <Td>{status}</Td>
+                    <Td>{target}</Td>
+                    <Td>
+                      {openAt} ~ {closeAt}
+                    </Td>
+                    <Td>{classCount}</Td>
+                  </Tr>
+                )
+              )}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Container>
+    </>
   );
 };
+
+const Container = styled.div`
+  padding: 0 7%;
+`;
 
 export default AfterSchoolCourseListPage;

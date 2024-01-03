@@ -1,16 +1,19 @@
 import styled from "@emotion/styled";
 import { Logo } from "../../assets";
-
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+
+  const navigate = useNavigate();
 
   return (
     <Container>
       <img
         src={Logo}
         alt="logo"
+        onClick={()=>{navigate("/main")}}
       />
-      <Div><Text>코스관리</Text>
-      <Text>강좌관리</Text>
+      <Div><Text onClick={()=>{navigate("/after-school-course/index")}}>코스관리</Text>
+      <Text onClick={()=>{navigate("/after-school-class/index")}}>강좌관리</Text>
       <Name>권하은 님</Name></Div>
       
     </Container>

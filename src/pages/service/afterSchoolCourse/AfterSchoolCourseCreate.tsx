@@ -10,6 +10,7 @@ import DatePicker from "../../../components/services/common/DatePicker";
 import PageHeader from "../../../components/services/common/PageHeader";
 import RadioContainer from "../../../components/services/common/RadioContainer";
 import Header from "../../../components/header";
+import styled from "@emotion/styled";
 
 interface FormType {
   courseName: string;
@@ -45,90 +46,91 @@ const AfterSchoolCourseCreatePage = () => {
 
   return (
     <>
-    <Header/>
-      <VStack>
-        <PageHeader title="방과후 코스 등록" />
-      </VStack>
-      <VStack alignItems="start" gap="60px" marginTop="30px">
-        <FormControl isRequired>
-          <FormLabel>코스명칭</FormLabel>
-          <Input
-            name="courseName"
-            placeholder="코스명을 입력하세요"
-            width="30vw"
-            minWidth="200px"
-            onChange={(e) => {
-              onChange("courseName", e.target.value);
-            }}
-          />
-        </FormControl>
-        <HStack gap="60px">
-          <RadioContainer
-            returnValue={(value) => {
-              onChange("grade", value);
-            }}
-            label="신청 대상"
-            description="선택하지 않을 시에는 전체 학년에게 해당됩니다."
-            radioItems={[
-              { label: "1학년", value: "1GRADE" },
-              { label: "2학년", value: "2GRADE" },
-              { label: "3학년", value: "3GRADE" },
-            ]}
-          />
-          <RadioContainer
-            returnValue={(value) => {
-              onChange("gender", value);
-            }}
-            label="성별 구분"
-            description="선택하지 않을 시에는 전체 성별에게 해당됩니다."
-            radioItems={[
-              { label: "남", value: "MAN" },
-              { label: "여", value: "WOMAN" },
-            ]}
-          />
-        </HStack>
-        <FormControl isRequired>
-          <FormLabel>신청기간</FormLabel>
-          <HStack>
-            <DatePicker
-              onDate
-              onHour
-              onMin
-              returnValue={(value) => {
-                onChange("startApplication", value);
+      <Header />
+      <Container>
+        <VStack>
+          <PageHeader title="방과후 코스 등록" />
+        </VStack>
+        <VStack alignItems="start" gap="60px" marginTop="30px">
+          <FormControl isRequired>
+            <FormLabel>코스명칭</FormLabel>
+            <Input
+              name="courseName"
+              placeholder="코스명을 입력하세요"
+              width="30vw"
+              minWidth="200px"
+              onChange={(e) => {
+                onChange("courseName", e.target.value);
               }}
             />
-            <p> ~ </p>
-            <DatePicker
-              onDate
-              onHour
-              onMin
+          </FormControl>
+          <HStack gap="60px">
+            <RadioContainer
               returnValue={(value) => {
-                onChange("endApplication", value);
+                onChange("grade", value);
               }}
+              label="신청 대상"
+              description="선택하지 않을 시에는 전체 학년에게 해당됩니다."
+              radioItems={[
+                { label: "1학년", value: "1GRADE" },
+                { label: "2학년", value: "2GRADE" },
+                { label: "3학년", value: "3GRADE" },
+              ]}
+            />
+            <RadioContainer
+              returnValue={(value) => {
+                onChange("gender", value);
+              }}
+              label="성별 구분"
+              description="선택하지 않을 시에는 전체 성별에게 해당됩니다."
+              radioItems={[
+                { label: "남", value: "MAN" },
+                { label: "여", value: "WOMAN" },
+              ]}
             />
           </HStack>
-        </FormControl>
-        <FormControl isRequired>
-          <FormLabel>수업기간</FormLabel>
-          <HStack>
-            <DatePicker
-              onDate
-              returnValue={(value) => {
-                onChange("startClassPeriod", value);
-              }}
-            />
-            <p> ~ </p>
-            <DatePicker
-              onDate
-              returnValue={(value) => {
-                onChange("endClassPeriod", value);
-              }}
-            />
-          </HStack>
-        </FormControl>
-      </VStack>
-      {/* <HStack justifyContent="end" marginTop="50px">
+          <FormControl isRequired>
+            <FormLabel>신청기간</FormLabel>
+            <HStack>
+              <DatePicker
+                onDate
+                onHour
+                onMin
+                returnValue={(value) => {
+                  onChange("startApplication", value);
+                }}
+              />
+              <p> ~ </p>
+              <DatePicker
+                onDate
+                onHour
+                onMin
+                returnValue={(value) => {
+                  onChange("endApplication", value);
+                }}
+              />
+            </HStack>
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel>수업기간</FormLabel>
+            <HStack>
+              <DatePicker
+                onDate
+                returnValue={(value) => {
+                  onChange("startClassPeriod", value);
+                }}
+              />
+              <p> ~ </p>
+              <DatePicker
+                onDate
+                returnValue={(value) => {
+                  onChange("endClassPeriod", value);
+                }}
+              />
+            </HStack>
+          </FormControl>
+        </VStack>
+        {/* <HStack justifyContent="end" marginTop="50px">
         <Button colorScheme="black" variant="outline">
           취소하기
         </Button>
@@ -136,8 +138,14 @@ const AfterSchoolCourseCreatePage = () => {
           저장하기
         </Button>
       </HStack> */}
+      </Container>
     </>
   );
 };
+
+const Container = styled.div`
+  background-color: white;
+  padding: 0 7%;
+`;
 
 export default AfterSchoolCourseCreatePage;
