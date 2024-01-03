@@ -4,12 +4,13 @@ import {
   HStack,
   Input,
   VStack,
+  Button,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DatePicker from "../../../components/services/common/DatePicker";
 import PageHeader from "../../../components/services/common/PageHeader";
 import RadioContainer from "../../../components/services/common/RadioContainer";
-import Header from "../../../components/header";
+import axios from "axios";
 
 interface FormType {
   courseName: string;
@@ -39,13 +40,13 @@ const AfterSchoolCourseCreatePage = () => {
     }));
   };
 
-  useEffect(() => {
-    console.log(form);
-  }, [form]);
+  // msw 테스트 코드
+  axios.get("/user/test").then((res) => {
+    console.log(res);
+  });
 
   return (
     <>
-    <Header/>
       <VStack>
         <PageHeader title="방과후 코스 등록" />
       </VStack>
@@ -128,14 +129,19 @@ const AfterSchoolCourseCreatePage = () => {
           </HStack>
         </FormControl>
       </VStack>
-      {/* <HStack justifyContent="end" marginTop="50px">
-        <Button colorScheme="black" variant="outline">
+      <HStack justifyContent="end" marginTop="50px">
+        <Button variant="outline" colorScheme="black" onClick={() => {}}>
           취소하기
         </Button>
-        <Button backgroundColor="black" color="white">
+        <Button
+          variant="soild"
+          backgroundColor="black"
+          color="white"
+          onClick={() => {}}
+        >
           저장하기
         </Button>
-      </HStack> */}
+      </HStack>
     </>
   );
 };
