@@ -25,7 +25,7 @@ const MainRouter = () => {
 
             <Route path="after-school-class">
               <Route path="index" element={<AfterSchoolClassList />} />
-              <Route path="create" element={<AfterSchoolClassListPage />} />
+              <Route path="create" element={<AfterSchoolClassCreate />} />
               <Route path=":id" element={<AfterSchoolClassDetail />} />
             </Route>
 

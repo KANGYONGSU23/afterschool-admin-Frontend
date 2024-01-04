@@ -11,6 +11,9 @@ import DatePicker from "../../../components/services/common/DatePicker";
 import PageHeader from "../../../components/services/common/PageHeader";
 import RadioContainer from "../../../components/services/common/RadioContainer";
 import axios from "axios";
+import styled from "@emotion/styled";
+import Header from "../../../components/header";
+import { useNavigate } from "react-router-dom";
 
 interface FormType {
   courseName: string;
@@ -23,6 +26,15 @@ interface FormType {
 }
 
 const AfterSchoolCourseCreatePage = () => {
+
+  const onClickSave = () => {
+    
+    navigate("/main");
+    alert("저장되었습니다");
+  };
+    
+  
+  const navigate = useNavigate();
   const [form, setForm] = useState<FormType>({
     courseName: "",
     grade: "ALL",
@@ -47,7 +59,9 @@ const AfterSchoolCourseCreatePage = () => {
 
   return (
     <>
-      <VStack>
+    <Header/>
+    <Container>
+       <VStack>
         <PageHeader title="방과후 코스 등록" />
       </VStack>
       <VStack alignItems="start" gap="60px" marginTop="30px">
@@ -99,7 +113,17 @@ const AfterSchoolCourseCreatePage = () => {
                 onChange("startApplication", value);
               }}
             />
-          </FormControl>
+            <DatePicker
+              onDate
+              onHour
+              onMin
+              returnValue={(value) => {
+                onChange("endApplication", value);
+              }}
+            />
+          </HStack>
+        </FormControl>
+        <FormControl>
           <HStack gap="60px">
             <RadioContainer
               returnValue={(value) => {
@@ -128,18 +152,20 @@ const AfterSchoolCourseCreatePage = () => {
         </FormControl>
       </VStack>
       <HStack justifyContent="end" marginTop="50px">
-        <Button variant="outline" colorScheme="black" onClick={() => {}}>
+        <Button variant="outline" colorScheme="black" onClick={()=>{navigate("/main")}}>
           취소하기
         </Button>
         <Button
           variant="soild"
           backgroundColor="black"
           color="white"
-          onClick={() => {}}
+          onClick={onClickSave}
         >
           저장하기
         </Button>
       </HStack>
+    </Container>
+     
     </>
   );
 };

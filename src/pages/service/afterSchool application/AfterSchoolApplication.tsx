@@ -4,9 +4,13 @@ import Header from "../../../components/header";
 import AfterSchoolApplicationList from "./AfterSchoolApplicationList";
 import { Checkbox, Radio } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const AfterSchoolCourseRegistration = () => {
   const [selectedOption, setSelectedOption] = useState(''); // 선택된 옵션을 관리할 상태
+
+  const navigate = useNavigate();
 
   const handleRadioChange = () => {
     setSelectedOption('radio');
@@ -15,6 +19,14 @@ const AfterSchoolCourseRegistration = () => {
   const handleCheckboxChange = () => {
     setSelectedOption('checkbox');
   };
+
+  
+  const onClickSave = () => {
+    
+    navigate("/main");
+    alert("신청되었습니다.");
+  };
+    
 
   return(
     <>
@@ -55,7 +67,7 @@ const AfterSchoolCourseRegistration = () => {
           </Box>
         </SelectSection>
         <ButtonSection>
-          <Button>신청하기</Button>
+          <Button   onClick={onClickSave}>신청하기</Button>
         </ButtonSection>
         <div>
           <ListTitle>
